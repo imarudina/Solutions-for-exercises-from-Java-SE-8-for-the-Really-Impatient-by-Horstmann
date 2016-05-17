@@ -6,17 +6,17 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- * User: eugen
- * Date: 28.10.14
+ * User: eugen Date: 28.10.14
  */
 public class C2E2 implements Exercise {
 
-    @Test
-    @Override
-    public void perform() {
-        List<String> words = getWordsAsList();
-        words.stream().filter(s -> s.length() > 12)
-                .limit(5).forEach(System.out::println);
-    }
+	@Test
+	@Override
+	public void perform() {
+		List<String> words = getWordsAsList();
+		words.stream().filter(s -> {
+			System.out.println("Filter called");
+			return s.length() > 12;
+		}).limit(5).forEach(System.out::println);
+	}
 }
-
